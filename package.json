@@ -1,0 +1,36 @@
+{
+  "name": "@modulus/rabbit-channel",
+  "description": "wrapper for creating a rabbitMQ connection and opening a channel",
+  "version": "0.0.0",
+  "author": "Modulus <info@modulus.io>",
+  "bugs": {
+    "url": "https://github.com/onmodulus/rabbit-channel/issues"
+  },
+  "devDependencies": {
+    "@modulus/standard": "1.0.0",
+    "code": "1.5.0",
+    "lab": "6.2.0"
+  },
+  "homepage": "https://github.com/onmodulus/rabbit-channel",
+  "keywords": [
+    "channel",
+    "connection",
+    "rabbit",
+    "rabbitMQ"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    "Jack Boberg <jack.boberg@progress.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onmodulus/rabbit-channel.git"
+  },
+  "scripts": {
+    "coverage": "lab -r html -o coverage/index.html -r lcov -o coverage/lcov.info",
+    "lint": "mod-standard",
+    "pretest": "npm run lint",
+    "test": "lab -cl"
+  }
+}
