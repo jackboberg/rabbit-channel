@@ -33,12 +33,45 @@ describe('RabbitChannel', function () {
     done();
   });
 
-  it('yeilds a channel and connection', function (done) {
-    RabbitChannel(url, opts, function (err, ch, conn) {
-      expect(err).to.not.exist();
-      expect(ch).to.equal(Channel);
-      expect(conn).to.equal(Connection);
-      done();
+  afterEach(function (done) {
+    Amqp.connect.reset();
+    Connection.createChannel.reset();
+    done();
+  });
+
+  describe('when passed only a callback', function () {
+    it('yields a channel and connection', function (done) {
+      RabbitChannel(function (err, ch, conn) {
+        expect(err).to.not.exist();
+        expect(ch).to.equal(Channel);
+        expect(conn).to.equal(Connection);
+        expect(Amqp.connect.calledWith(null, null)).to.be.true();
+        done();
+      });
+    });
+  });
+
+  describe('when passed a url and callback', function () {
+    it('yields a channel and connection', function (done) {
+      RabbitChannel(url, function (err, ch, conn) {
+        expect(err).to.not.exist();
+        expect(ch).to.equal(Channel);
+        expect(conn).to.equal(Connection);
+        expect(Amqp.connect.calledWith(url, null)).to.be.true();
+        done();
+      });
+    });
+  });
+
+  describe('when passed a url, options, and callback', function () {
+    it('yields a channel and connection', function (done) {
+      RabbitChannel(url, opts, function (err, ch, conn) {
+        expect(err).to.not.exist();
+        expect(ch).to.equal(Channel);
+        expect(conn).to.equal(Connection);
+        expect(Amqp.connect.calledWith(url, opts)).to.be.true();
+        done();
+      });
     });
   });
 
@@ -55,10 +88,8 @@ describe('RabbitChannel', function () {
     });
 
     it('yields an error', function (done) {
-      RabbitChannel(url, opts, function (err, ch, conn) {
+      RabbitChannel(url, opts, function (err) {
         expect(err).to.equal(error);
-        expect(ch).to.not.exist();
-        expect(conn).to.not.exist();
         done();
       });
     });
@@ -77,10 +108,8 @@ describe('RabbitChannel', function () {
     });
 
     it('yields an error', function (done) {
-      RabbitChannel(url, opts, function (err, ch, conn) {
+      RabbitChannel(url, opts, function (err) {
         expect(err).to.equal(error);
-        expect(ch).to.not.exist();
-        expect(conn).to.not.exist();
         done();
       });
     });
