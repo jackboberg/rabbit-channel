@@ -9,7 +9,9 @@
   "devDependencies": {
     "@modulus/standard": "1.0.0",
     "code": "1.5.0",
-    "lab": "6.2.0"
+    "lab": "6.2.0",
+    "proxyquire": "1.7.10",
+    "sinon": "1.17.5"
   },
   "homepage": "https://github.com/onmodulus/rabbit-channel",
   "keywords": [
