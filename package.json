@@ -1,7 +1,7 @@
 {
   "name": "@modulus/rabbit-channel",
   "description": "wrapper for creating a rabbitMQ connection and opening a channel",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Modulus <info@modulus.io>",
   "bugs": {
     "url": "https://github.com/onmodulus/rabbit-channel/issues"
