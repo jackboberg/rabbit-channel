@@ -32,7 +32,7 @@
   },
   "scripts": {
     "coverage": "lab -r html -o coverage/index.html -r lcov -o coverage/lcov.info",
-    "lint": "mod-standard",
+    "lint": "standard",
     "pretest": "npm run lint",
     "test": "lab -cl"
   },
