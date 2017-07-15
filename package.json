@@ -33,7 +33,7 @@
     "coverage": "lab -r html -o coverage/index.html -r lcov -o coverage/lcov.info",
     "lint": "standard",
     "pretest": "npm run lint",
-    "test": "lab -cl"
+    "test": "lab -clv"
   },
   "dependencies": {
     "amqplib": "0.4.2"

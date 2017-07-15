@@ -13,11 +13,11 @@ const expect = Code.expect
 
 const Channel = { test: true }
 const Connection = {
-  createChannel: Sinon.stub().yields(null, Channel),
+  createChannel: Sinon.stub(),
   close: Sinon.stub()
 }
 const Amqp = {
-  connect: Sinon.stub().yields(null, Connection)
+  connect: Sinon.stub()
 }
 
 const RabbitChannel = Proxyquire('..', {
@@ -31,6 +31,8 @@ describe('RabbitChannel', function () {
     error = null
     url = 'http://local.docker'
     opts = {}
+    Amqp.connect.yields(null, Connection)
+    Connection.createChannel.yields(null, Channel)
     done()
   })
 
