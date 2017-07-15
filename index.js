@@ -1,23 +1,22 @@
 const Amqp = require('amqplib/callback_api')
 
-module.exports = function Channel (url, opts, done) {
-  if (typeof url === 'function') {
-    done = url
-    url = opts = null
-  }
+const isFunction = (value) => typeof value === 'function'
 
-  if (typeof opts === 'function') {
-    done = opts
-    opts = null
-  }
+module.exports = (url, opts, done) => {
+  if (isFunction(url)) [url, opts, done] = [null, {}, url]
+  if (isFunction(opts)) [opts, done] = [{}, opts]
 
   Amqp.connect(url, opts, function (err, conn) {
     if (err) return done(err)
 
-    conn.createChannel(function (err, ch) {
-      if (err) return done(err)
+    const closeConnection = (err) => {
+      conn.close()
+      done(err)
+    }
 
-      done(null, ch, conn)
+    conn.createChannel(function (err, ch) {
+      if (err) closeConnection(err)
+      else done(null, ch, conn)
     })
   })
 }
