@@ -13,7 +13,8 @@ const expect = Code.expect
 
 const Channel = { test: true }
 const Connection = {
-  createChannel: Sinon.stub().yields(null, Channel)
+  createChannel: Sinon.stub().yields(null, Channel),
+  close: Sinon.stub()
 }
 const Amqp = {
   connect: Sinon.stub().yields(null, Connection)
@@ -36,6 +37,7 @@ describe('RabbitChannel', function () {
   afterEach(function (done) {
     Amqp.connect.reset()
     Connection.createChannel.reset()
+    Connection.close.reset()
     done()
   })
 
@@ -45,7 +47,7 @@ describe('RabbitChannel', function () {
         expect(err).to.not.exist()
         expect(ch).to.equal(Channel)
         expect(conn).to.equal(Connection)
-        expect(Amqp.connect.calledWith(null, null)).to.be.true()
+        expect(Amqp.connect.calledWith(null, {})).to.be.true()
         done()
       })
     })
@@ -57,7 +59,7 @@ describe('RabbitChannel', function () {
         expect(err).to.not.exist()
         expect(ch).to.equal(Channel)
         expect(conn).to.equal(Connection)
-        expect(Amqp.connect.calledWith(url, null)).to.be.true()
+        expect(Amqp.connect.calledWith(url, {})).to.be.true()
         done()
       })
     })
@@ -110,6 +112,7 @@ describe('RabbitChannel', function () {
     it('yields an error', function (done) {
       RabbitChannel(url, opts, function (err) {
         expect(err).to.equal(error)
+        expect(Connection.close.called).to.be.true()
         done()
       })
     })
