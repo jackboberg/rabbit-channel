@@ -1,15 +1,8 @@
-# rabbit-channel
+# @jackrabbit/channel
 
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 [![standard][standard-image]][standard-url]
-
-[npm-image]: https://img.shields.io/npm/v/rabbit-channel.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/rabbit-channel
-[travis-image]: https://img.shields.io/travis/jackboberg/rabbit-channel.svg?style=flat-square
-[travis-url]: https://travis-ci.org/jackboberg/rabbit-channel
-[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
-[standard-url]: http://npm.im/standard
 
 > wrapper for creating a rabbitMQ connection and opening a channel
 
@@ -35,7 +28,7 @@ Additionally, using this module abstracts the dependency on `amqplib` (a little)
 ## Install
 
 ```
-npm install rabbit-channel
+npm install @jackrabbit/channel
 ```
 
 ## Usage
@@ -44,7 +37,7 @@ The exported function takes the same parameters as [`amqplib.connect`][amqplib],
 and yields `channel` and `connection` objects.
 
 ```js
-const RabbitChannel = require('rabbit-channel')
+const RabbitChannel = require('@jackrabbit/channel')
 
 RabbitChannel(url, options, (err, channel, connection) {
   if (err) throw err
@@ -61,4 +54,10 @@ Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md
 
 [MIT](LICENSE.md)
 
+[npm-image]: https://img.shields.io/npm/v/@jackrabbit/channel.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@jackrabbit/channel
+[travis-image]: https://img.shields.io/travis/jackboberg/rabbit-channel.svg?style=flat-square
+[travis-url]: https://travis-ci.org/jackboberg/rabbit-channel
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[standard-url]: http://npm.im/standard
 [amqplib]: http://www.squaremobius.net/amqp.node/channel_api.html#connect
