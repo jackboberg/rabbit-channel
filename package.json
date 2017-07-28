@@ -1,19 +1,22 @@
 {
-  "name": "@modulus/rabbit-channel",
+  "name": "rabbit-channel",
   "description": "wrapper for creating a rabbitMQ connection and opening a channel",
   "version": "1.0.0",
-  "author": "Modulus <info@modulus.io>",
+  "author": "Jack Boberg <hello@jackboberg.info>",
   "bugs": {
-    "url": "https://github.com/onmodulus/rabbit-channel/issues"
+    "url": "https://github.com/jackboberg/rabbit-channel/issues"
+  },
+  "dependencies": {
+    "amqplib": "0.5.1"
   },
   "devDependencies": {
-    "@modulus/standard": "1.0.0",
-    "code": "1.5.0",
-    "lab": "6.2.0",
-    "proxyquire": "1.7.10",
-    "sinon": "1.17.5"
+    "code": "4.1.0",
+    "lab": "14.1.1",
+    "proxyquire": "1.8.0",
+    "sinon": "2.3.8",
+    "standard": "10.0.2"
   },
-  "homepage": "https://github.com/onmodulus/rabbit-channel",
+  "homepage": "https://github.com/jackboberg/rabbit-channel",
   "keywords": [
     "channel",
     "connection",
@@ -23,19 +26,17 @@
   "license": "MIT",
   "main": "index.js",
   "maintainers": [
-    "Jack Boberg <jack.boberg@progress.com>"
+    "Jack Boberg <hello@jackboberg.info>",
+    "Jeremiah Harlan <jeremiah.harlan@gmail.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/onmodulus/rabbit-channel.git"
+    "url": "https://github.com/jackboberg/rabbit-channel.git"
   },
   "scripts": {
     "coverage": "lab -r html -o coverage/index.html -r lcov -o coverage/lcov.info",
-    "lint": "mod-standard",
+    "lint": "standard",
     "pretest": "npm run lint",
-    "test": "lab -cl"
-  },
-  "dependencies": {
-    "amqplib": "0.4.2"
+    "test": "lab -clv"
   }
 }
