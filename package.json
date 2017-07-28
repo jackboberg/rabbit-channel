@@ -7,14 +7,14 @@
     "url": "https://github.com/jackboberg/rabbit-channel/issues"
   },
   "dependencies": {
-    "amqplib": "0.5.1"
+    "amqplib": "^0.5.1"
   },
   "devDependencies": {
-    "code": "4.1.0",
-    "lab": "14.1.1",
-    "proxyquire": "1.8.0",
-    "sinon": "2.3.8",
-    "standard": "10.0.2"
+    "code": "^4.1.0",
+    "lab": "^14.1.1",
+    "proxyquire": "^1.8.0",
+    "sinon": "^2.3.8",
+    "standard": "^10.0.2"
   },
   "homepage": "https://github.com/jackboberg/rabbit-channel",
   "keywords": [
