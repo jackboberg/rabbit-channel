@@ -3,6 +3,7 @@
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 [![standard][standard-image]][standard-url]
+[![semantic release][semantic-image]][semantic-url]
 
 > wrapper for creating a rabbitMQ connection and opening a channel
 
@@ -60,4 +61,6 @@ Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md
 [travis-url]: https://travis-ci.org/jackboberg/rabbit-channel
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [standard-url]: http://npm.im/standard
+[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
+[semantic-url]: https://github.com/semantic-release/semantic-release
 [amqplib]: http://www.squaremobius.net/amqp.node/channel_api.html#connect
