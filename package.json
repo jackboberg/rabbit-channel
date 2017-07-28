@@ -13,7 +13,6 @@
     "code": "^4.1.0",
     "lab": "^14.1.1",
     "proxyquire": "^1.8.0",
-    "semantic-release": "^6.3.6",
     "sinon": "^2.4.1",
     "standard": "^10.0.2"
   },
@@ -38,7 +37,6 @@
     "coverage": "lab -r html -o coverage/index.html -r lcov -o coverage/lcov.info",
     "lint": "standard",
     "pretest": "npm run lint",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "lab -clv"
   }
 }
