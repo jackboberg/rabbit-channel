@@ -1,5 +1,5 @@
 {
-  "name": "rabbit-channel",
+  "name": "@jackrabbit/channel",
   "description": "wrapper for creating a rabbitMQ connection and opening a channel",
   "version": "1.0.0",
   "author": "Jack Boberg <hello@jackboberg.info>",
