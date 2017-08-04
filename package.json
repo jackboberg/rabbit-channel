@@ -13,7 +13,7 @@
     "code": "^4.1.0",
     "lab": "^14.1.1",
     "proxyquire": "^1.8.0",
-    "sinon": "^2.4.1",
+    "sinon": "^3.0.0",
     "standard": "^10.0.2"
   },
   "homepage": "https://github.com/jackboberg/rabbit-channel",
